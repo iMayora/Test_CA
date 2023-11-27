@@ -1,6 +1,5 @@
 from itertools import permutations
 
-
 def is_prime(n):
     if n < 2:
         return False
@@ -9,10 +8,14 @@ def is_prime(n):
             return False
     return True
 
+def have_common_divisor(a, b, c):
+    for i in range(2, min(a, b, c) + 1):
+        if a % i == 0 and b % i == 0 and c % i == 0:
+            return True
+    return False
 
 def valid_prefix(prefix):
     return prefix in ['0414', '0424', '0416', '0426', '0412']
-
 
 def valid_vector(v):
     v_str = ''.join(map(str, v))
@@ -23,14 +26,17 @@ def valid_vector(v):
     if '88' not in v_str:
         return False
 
-    if v_str.count('9') == 2 and (
-            v_str.index('9') + 2 != v_str.rindex('9') or v_str[v_str.index('9') + 1] == v_str[v_str.index('9') + 2]):
+    if v_str.count('9') == 2 and (v_str.index('9') + 2 != v_str.rindex('9') or v_str[v_str.index('9') + 1] == v_str[v_str.index('9') + 2]):
         return False
 
     if v_str.count('3') == 2 and v_str[v_str.index('3') - 1] != v_str[v_str.rindex('3') + 1]:
         return False
 
-    if int(v_str[-2]) % int(v_str[-1]) != 0:
+    if not have_common_divisor(int(v_str[4]), int(v_str[5]), int(v_str[6])):
+        return False
+
+    # Check to prevent ZeroDivisionError
+    if int(v_str[-1]) != 0 and int(v_str[-2]) % int(v_str[-1]) != 0:
         return False
 
     if not is_prime(int(v_str[-1])):
@@ -50,6 +56,12 @@ def valid_vector(v):
                 return False
 
     return True
+
+def find_combinations(v):
+    for perm in permutations(v):
+        if valid_vector(perm):
+            return perm
+    return None
 
 
 def find_combinations(v):
