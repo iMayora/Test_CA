@@ -1,0 +1,10 @@
+id,amount,auto_transfer,description
+100,50,1,carnes
+101,25,1,cereales
+102,25,1,sal
+103,150,2,bebidas
+104,50,2,carnes
+105,10,3,cereales
+106,100,3,carnes
+107,100,3,cafe
+108,90,3,frutas
