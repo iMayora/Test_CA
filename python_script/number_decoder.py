@@ -36,6 +36,19 @@ def valid_vector(v):
     if not is_prime(int(v_str[-1])):
         return False
 
+    if v_str.count('9') == 2:
+        index_first_9 = v_str.index('9')
+        index_second_9 = v_str.rindex('9')
+        separator = v_str[index_first_9 + 1]
+
+        if v_str.count(separator) > 1 or separator == v_str[index_first_9 + 2]:
+            return False
+
+    for i in range(1, len(v_str) - 1):
+        if v_str[i] == '3':
+            if v_str[i - 1] != v_str[i + 1]:
+                return False
+
     return True
 
 
