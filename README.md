@@ -1,6 +1,6 @@
-# Condor Agency Data Analyst Interview Test
+# Condor Agency Data Interview Test
 
-Welcome to my submission repository for the Data Analyst position at Condor Agency. This repository contains my solutions for the SQL test and the Python script assignment as part of the interview process.
+Welcome to my submission repository for the Data position at Condor Agency. This repository contains my solutions for the SQL test and the Python script assignment as part of the interview process.
 
 ## About the Test
 
